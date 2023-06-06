@@ -1,7 +1,8 @@
 const parentDiv = document.getElementById("parent-div");
-const titleInput=document.getElementById('titleInput');
-const authorInput=document.getElementById('authorInput');
-const addButton=document.getElementById('addButton');
+const titleInput = document.getElementById("titleInput");
+const authorInput = document.getElementById("authorInput");
+const addButton = document.getElementById("addButton");
+const updatebutton= document.getElementById('updateButton');
 
 window.addEventListener("load", getData);
 
@@ -13,7 +14,6 @@ async function getData() {
   console.log(initialData);
 
   renderData();
-  
 }
 
 async function renderData() {
@@ -41,29 +41,37 @@ async function renderData() {
   });
 }
 
+const addData = async (e) => {
+  console.log(e.target.innerText);
+  const title = titleInput.value;
+  const author = authorInput.value;
 
+  const data = {
+    title: title,
+    author: author,
+  };
 
-const addData=async(e)=>{
- const title= titleInput.value;
- const author=authorInput.value;
-
- const data={
-    title:title,
-    author:author
- }
-
- 
-
- 
+  if(e.target.innerText==='Add'){
+    try {
+    await axios.post("http://localhost:3000", data);
+  } catch (err) {
+    console.log(err);
+    console.log(data);
+  }}
+  else{
     try{
-    await axios.post('http://localhost:3000',data)
-  }
-    catch(err){
-        console.log(err);
-        console.log(data)
+      await axios.put(`http://localhost:3000/${title}`,data)
     }
+    catch(err){
+      console.log(err.message);
+    }
+  }
  
+};
 
-}
+addButton.addEventListener("click", addData);
+updatebutton.addEventListener('click',addData);
 
-addButton.addEventListener('click',addData)
+
+
+
