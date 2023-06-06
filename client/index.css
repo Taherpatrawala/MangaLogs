@@ -1,9 +1,54 @@
+body{
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+}
 
+h1{
+    text-align: center;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+input{
+    width: 15vw;
+    height: 5vh;
+    border: solid;
+    border-color: rgb(156, 242, 242);
+    border-radius: 10pc;
+  
+}
+
+
+
+
+button{
+    padding: 0.25rem;
+    color: white;
+    background-color: rgb(235, 102, 102);
+    border: solid;
+    border-color: rgb(199, 0, 0);
+    border-radius: 10pc;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input,button{
+    margin: 0.5rem;
+}
 
 #parent-div{
-    border:black;
-    border-width: medium;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .manga{
@@ -12,3 +57,23 @@
     margin: 10px;
     text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+    .manga{
+        width: 100%;
+    }
+    input{
+        width: 100%;
+    }
+   form> button{
+        width: 100%;
+    }
+    #parent-div{
+        flex-direction: column;
+    }
+    form{
+        flex-direction: column;
+    }
+
+}
+    
