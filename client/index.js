@@ -27,6 +27,8 @@ async function renderData() {
     childDivAuthor.innerText = data.author;
     deleteButton.innerText = "Delete";
 
+    manga.setAttribute('class','manga')
+
     deleteButton.addEventListener("click", async () => {
       const deleteData = await axios.delete(
         `http://localhost:3000/${data.title}`

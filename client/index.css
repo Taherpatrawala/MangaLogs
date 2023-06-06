@@ -5,3 +5,10 @@
     border-width: medium;
     display: flex;
 }
+
+.manga{
+    border: black;
+    border-width: medium;
+    margin: 10px;
+    text-align: center;
+}
