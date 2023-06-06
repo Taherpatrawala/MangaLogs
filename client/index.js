@@ -56,10 +56,8 @@ const addData=async(e)=>{
 
  
     try{
-    await axios.post('http://localhost:3000',data),
-   { headers: {
-        'Content-Type': 'application/json', // Adjust the content type if needed
-      }}}
+    await axios.post('http://localhost:3000',data)
+  }
     catch(err){
         console.log(err);
         console.log(data)
